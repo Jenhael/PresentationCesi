@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Présentation de la formation{% endblock %}
+
+<meta charset="UTF-8">
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/global.css') }}"/>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="my-div">
+ <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}"/>
+
+<nav>
+	<a href="{{ path('app_page_accueil') }}" class="nav_menu_logo">CESI</a>
+	<ul>
+		<a href="{{ path('app_page_accueil') }}">Accueil</a>
+		<a href="">Nos formations</a>
+		<a href="">À propos</a>
+		<a href="">Contact</a>
+	</ul>
+	{% if app.user %}
+		<a href="{{ path('app_espace_intervenant') }}" class="nav_menu_connexion_btn">Mon espace</a>
+	{% else %}
+		<a href="{{ path('app_login') }}" class="nav_menu_connexion_btn">Connexion</a>
+	{% endif %}
+</nav>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Formation Developpeur Informatique</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="title">Devenez un Expert du Code avec la Formation de Développeur Informatique du CESI !</h1>
+
+    <p class="paragraph">
+        Vous êtes passionné par la technologie et vous rêvez de devenir un maître du code ? La formation de développeur informatique du CESI est votre passeport vers une carrière excitante dans le monde de la programmation !
+    </p>
+
+    <p class="paragraph">
+        <strong>Explorez le Monde du Développement Logiciel :</strong> Découvrez un univers infini de possibilités en apprenant les langages de programmation les plus en vogue comme Java, Python, C#, et bien d'autres encore ! Notre programme est conçu pour vous immerger dans l'univers fascinant du développement logiciel dès le premier jour.
+    </p>
+
+    <p class="paragraph">
+        <strong>Créez des Applications Révolutionnaires :</strong> De la conception à la mise en œuvre, vous serez formé pour développer des applications web et mobiles innovantes qui changent la donne. Grâce à nos projets pratiques et à nos travaux de groupe stimulants, vous aurez l'occasion de laisser libre cours à votre créativité et de construire l'avenir de la technologie.
+    </p>
+
+    <p class="paragraph">
+        <strong>Plongez dans l'Ère du Numérique :</strong> L'ère numérique évolue à un rythme effréné, et vous serez prêt à relever tous les défis grâce à notre formation. De l'intelligence artificielle à l'Internet des objets, vous explorerez les technologies émergentes qui façonnent notre monde et vous serez prêt à en devenir un acteur clé.
+    </p>
+
+    <p class="paragraph">
+        <strong>Accompagnement Personnalisé et Opportunités Professionnelles :</strong> Chez CESI, nous croyons en votre succès. C'est pourquoi nos enseignants expérimentés et nos tuteurs dévoués vous guideront à chaque étape de votre parcours. De plus, grâce à nos partenariats avec des entreprises de renom, vous bénéficierez d'opportunités de stages et d'emplois exclusives pour donner un coup de pouce à votre carrière.
+    </p>
+
+    <p class="paragraph">
+        <strong>Rejoignez la Révolution Technologique avec CESI !</strong> Inscrivez-vous dès maintenant et transformez votre passion pour la technologie en une carrière palpitante de développeur informatique. Le futur vous attend, et il est entre vos mains !
+    </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>Durée de la formation : 9 mois</p>
+            <p>Debut : 4 Septembre 2024</p>
+            <a href="/inscription" class="btn btn-primary">Je m'inscris</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+<link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}"/>
+
+<section class="footer_section">
+	<footer>
+		<div>
+			<p>
+				<b>CESI</b>
+			</p>
+			<p>Ecole</p>
+			<p>Carrière</p>
+		</div>
+		<div>
+			<p>
+				<b>Programmes</b>
+			</p>
+			<p>Développeur·se informatique</p>
+			<p>Système et réseau</p>
+		</div>
+		<div>
+			<p>
+				<b>Divers</b>
+			</p>
+			<p>Contact</p>
+			<p>Plan de site</p>
+		</div>
+		<div>
+			<p>
+				<b>Réglementations</b>
+			</p>
+			<p>Politique de confidentialité</p>
+			<p>Politique de cookies UE</p>
+			<p>Mentions légales</p>
+		</div>
+	</footer>
+</section>

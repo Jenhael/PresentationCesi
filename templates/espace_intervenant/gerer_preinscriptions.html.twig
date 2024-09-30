@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Intervenant
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/espace_intervenant.css') }}"/>
+{% endblock %}
+
+{% block body %}
+	{% block navbar %}
+		{{ parent() }}
+	{% endblock %}
+	<section class="espace_intervenant_section">
+		<div class="espace_intervenant_column1">
+			{% include 'invervenant_navmenu/index.html.twig' %}
+		</div>
+		<div class="gerer_intervenant_column2">
+			<div class="gerer_intervenant_list">
+				{% for intervenant in data %}
+					<form class="gerer_intervenant_form" action="/delete" method="post">
+						<div>
+							<span>Infos personnelles</span>
+							<h2>
+								<img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/profile_icon.svg') }}">
+								{{ intervenant.nom }}
+								{{ intervenant.prenom }}
+							</h2>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/date_of_birth.svg') }}">
+								{{ intervenant.date_de_naissance }}
+							</p>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/location_icon.svg') }}">
+								{{ intervenant.adresse }},
+								{{ intervenant.code_postal }},
+								{{ intervenant.ville }}
+							</p>
+
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/telephone_icon.svg') }}">
+								{{ intervenant.telephone }}
+							</p>
+						</div>
+						<div>
+							<span>Formations</span>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/competance_icon.svg') }}">
+								{{ intervenant.formations_names }}
+							</p>
+						</div>
+						<div>
+							<span>Diplomes</span>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/diplome_icon.svg') }}">
+								{{ intervenant.diplome }}
+							</p>
+						</div>
+						<div>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/cv_icon.svg') }}">
+								<a class="preinscription_cv" href="{{ asset('assets/files/' ~ intervenant.cv) }}" target="_blank">Cv</a>
+							</p>
+						</div>
+					</form>
+				{% endfor %}
+			</div>
+
+			<div class="export_icons_container">
+				<a href="{{ path('export_excel') }}"><img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/excel_icon.svg') }}"></a>
+				<a href="#"><img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/pdf_icon.svg') }}"></a>
+			</div>
+		</div>
+	</section>
+
+	{% block footer %}
+		{{ parent() }}
+	{% endblock %}
+
+	{% block scripts %}
+		<script src="{{ asset('assets/scripts/espace_intervenant.js') }}"></script>
+	{% endblock %}
+
+{% endblock %}

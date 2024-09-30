@@ -1,0 +1,95 @@
+{# Présentation de la Formation GMSI (Gestionnaire en Maintenance et Support Informatique) du CESI #}
+
+<meta charset="UTF-8">
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/global.css') }}"/>
+{% endblock %}
+
+
+<div class="my-div">
+ <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}"/>
+
+<nav>
+	<a href="{{ path('app_page_accueil') }}" class="nav_menu_logo">CESI</a>
+	<ul>
+		<a href="{{ path('app_page_accueil') }}">Accueil</a>
+		<a href="">Nos formations</a>
+		<a href="">À propos</a>
+		<a href="">Contact</a>
+	</ul>
+	{% if app.user %}
+		<a href="{{ path('app_espace_intervenant') }}" class="nav_menu_connexion_btn">Mon espace</a>
+	{% else %}
+		<a href="{{ path('app_login') }}" class="nav_menu_connexion_btn">Connexion</a>
+	{% endif %}
+</nav>
+</div>
+
+
+
+
+<div class="container">
+    <h1 class="title">Devenez un Expert de la Gestion Informatique avec la Formation GMSI du CESI !</h1>
+
+    <p class="paragraph">
+        Vous êtes passionné par l'informatique et vous aspirez à devenir un leader dans le domaine de la gestion des systèmes d'information ? La formation GMSI du CESI vous offre l'opportunité de développer les compétences nécessaires pour exceller dans ce domaine passionnant !
+    </p>
+
+    <p class="paragraph">
+        <strong>Maîtrisez la Gestion des Systèmes d'Information :</strong> Plongez dans les principes fondamentaux de la gestion des systèmes d'information, de la planification stratégique à la mise en œuvre opérationnelle. Notre programme vous prépare à relever les défis de la gestion informatique dans un monde en constante évolution.
+    </p>
+
+    <p class="paragraph">
+        <strong>Optimisez la Performance des Infrastructures Informatiques :</strong> Apprenez à concevoir, déployer et maintenir des infrastructures informatiques robustes et fiables. Vous développerez des compétences avancées en gestion de réseau, en virtualisation, en sécurité informatique et bien plus encore !
+    </p>
+
+    <p class="paragraph">
+        <strong>Assurez un Support Informatique de Qualité :</strong> De la résolution des incidents à la gestion des demandes, vous serez formé pour offrir un support informatique exceptionnel à vos utilisateurs. Notre approche pratique vous permettra de développer vos compétences en communication et en résolution de problèmes.
+    </p>
+
+    <p class="paragraph">
+        <strong>Accompagnement Personnalisé et Opportunités Professionnelles :</strong> Chez CESI, nous sommes déterminés à vous aider à réussir. Nos formateurs expérimentés et nos conseillers en carrière vous guideront tout au long de votre parcours. De plus, nos partenariats avec des entreprises renommées vous offriront des opportunités de stages et d'emplois pour lancer votre carrière dans la gestion informatique.
+    </p>
+
+    <p class="paragraph">
+        <strong>Prenez les Rênes de votre Avenir Informatique avec CESI !</strong> Inscrivez-vous dès maintenant et transformez votre passion pour la technologie en une carrière gratifiante de gestionnaire en maintenance et support informatique. L'avenir numérique vous attend, et vous avez le pouvoir de le façonner !
+    </p>
+</div>
+
+<link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}"/>
+
+<section class="footer_section">
+	<footer>
+		<div>
+			<p>
+				<b>CESI</b>
+			</p>
+			<p>Ecole</p>
+			<p>Carrière</p>
+		</div>
+		<div>
+			<p>
+				<b>Programmes</b>
+			</p>
+			<p>Développeur·se informatique</p>
+			<p>Système et réseau</p>
+		</div>
+		<div>
+			<p>
+				<b>Divers</b>
+			</p>
+			<p>Contact</p>
+			<p>Plan de site</p>
+		</div>
+		<div>
+			<p>
+				<b>Réglementations</b>
+			</p>
+			<p>Politique de confidentialité</p>
+			<p>Politique de cookies UE</p>
+			<p>Mentions légales</p>
+		</div>
+	</footer>
+</section>

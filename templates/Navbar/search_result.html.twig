@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Résultats de la recherche</h1>
+
+    {% for product in products %}
+        <div>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+        </div>
+    {% else %}
+        <p>Aucun produit ne correspond à votre recherche.</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accès intervenant!
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/login.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% block navbar %}
+		{{ parent() }}
+	{% endblock %}
+	<section class="login_section">
+		<form method="post" class="login_form">
+			{% if error %}
+				<div class="alert alert-danger">Email ou mot de passe invalide</div>
+			{% endif %}
+
+			<h1 class="h3 mb-3 font-weight-normal">Accès intervenant</h1>
+			<p>Veuillez vous connecter pour accéder à votre espace intervenant</p>
+			<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Votre email">
+			<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Votre mot de passe">
+
+			<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+			<div class="checkbox mb-3">
+				<label class="login_checkbox_label">
+					<input type="checkbox" name="_remember_me">
+					Se souvenir de moi
+				</label>
+			</div>
+
+			<button class="btn btn-lg btn-primary" type="submit">
+				Connexion
+			</button>
+		</form>
+	</section>
+
+	{% block footer %}
+		{{ parent() }}
+	{% endblock %}
+{% endblock %}

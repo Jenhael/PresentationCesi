@@ -1,0 +1,85 @@
+.preinscription_section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.preinscription_section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.288) 0%, rgba(0, 0, 0, 0.808) 100%);
+}
+
+.preinscription_form {
+    width: 30%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    box-shadow: 0vh 0vh 1vh rgba(0, 0, 0, 0.308);
+    padding: 5vh;
+    border-radius: 2vh;
+    background-color: white;
+    overflow-y: scroll;
+}
+
+.preinscription_form::-webkit-scrollbar{
+    background-color: transparent;
+    width: 0.7vh;
+}
+
+.preinscription_form::-webkit-scrollbar-thumb{
+    border-radius: 100vh;
+    background-color: silver;
+}
+
+body {
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../images/cesi_bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+#utilisateur_formations{
+    display: grid;
+    grid-template-columns: 2fr 30fr;
+    gap: 1vh;
+    border-radius: 2vh;
+    padding: 2vh;
+    border: 0.1vh solid #124e78;
+}
+
+.preinscription_form p {
+    opacity: 0.5;
+}
+
+.success_message_container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success_message{
+    padding: 2vh;
+    background-color: lightgreen;
+    border-radius: 2vh;
+    width: 30%;
+}

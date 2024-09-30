@@ -1,0 +1,14 @@
+footer {
+    width: 100%;
+    padding: 10vh;
+    background-color: #F2BB05;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 2vh;
+    box-shadow: 0vh 0vh 1vh rgba(0, 0, 0, 0.305);
+}
+
+.footer_section {
+    padding: 2vh;
+    background-color: #2d70a0;
+}

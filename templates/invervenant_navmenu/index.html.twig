@@ -1,0 +1,14 @@
+<link rel="stylesheet" href="{{ asset('assets/css/invervenant_navmenu.css') }}">
+
+<nav class="intervenant_navmenu">
+	<a href="{{ path('app_espace_intervenant') }}" class="intervenant_navmenu_profile intervenant_navmenu_hrefs">
+		<img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/profile_icon.svg') }}">
+		{% if is_granted('ROLE_USER') %}
+			{{ inscriptionIntervenant.nom }}
+			{{ inscriptionIntervenant.prenom }}
+		{% endif %}
+	</a>
+	<a href="{{ path('gerer_les_intervenants') }}" class="intervenant_navmenu_hrefs">Gérer les intervenants</a>
+	<a href="{{ path('gerer_les_preinscription') }}" class="intervenant_navmenu_hrefs">Gérer les préinscriptions</a>
+	<a href="{{ path('app_logout') }}" class="intervenant_navmenu_logout">Se déconnecter</a>
+</nav>

@@ -1,0 +1,154 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/index.css') }}"/>
+{% endblock %}
+
+{% block body %}
+
+	{% block navbar %}
+		{{ parent() }}
+	{% endblock %}
+
+	<section class="page_accueil_section">
+		<h1>Bienvenue dans votre école !</h1>
+
+		<div class="page_accueil_container2">
+			<div class="page_accueil_container3">
+				<div>
+					<p>Trouvez le programme de formation qui vous convient</p>
+					<div class="page_accueil_container2_search_container">
+						<input type="text" placeholder="Votre recherche : Développeur·se informatique, Système et réseau">
+						<button type="button">Chercher</button>
+					</div>
+				</div>
+				<div>
+					<p>Laissez-vous guider selon votre profil</p>
+					<select>
+						<option>Lycéen·ne</option>
+						<option>Étudiant·e</option>
+						<option>Étudiant·e international·e</option>
+						<option>En reconversion / demandeur·se d’emploi</option>
+						<option>Professionnel·le</option>
+						<option>Une entreprise</option>
+					</select>
+				</div>
+			</div>
+
+			<div class="page_accueil_container">
+				<span class="page_accueil_container_span">
+					<p class="page_accueil_section_p_head">28 000</p>
+					<p>Etudiants par an dont 17 200 apprentis</p>
+				</span>
+				<span class="page_accueil_container_span">
+					<p class="page_accueil_section_p_head">2 800</p>
+					<p>Intervenants experts & 1 300 collaborateurs</p>
+				</span>
+				<span class="page_accueil_container_span">
+					<p class="page_accueil_section_p_head">130</p>
+					<p>Universités partenaires dans le monde</p>
+				</span>
+				<span class="page_accueil_container_span">
+					<p class="page_accueil_section_p_head">8000</p>
+					<p>Entreprises partenaires en France</p>
+				</span>
+				<span class="page_accueil_container_span">
+					<p class="page_accueil_section_p_head">106 000</p>
+					<p>Alumni</p>
+				</span>
+			</div>
+		</section>
+
+		<section class="page_accueil_section2">
+			<div class="page_accueil_section2_container">
+				<h2>Formez-vous dès aujourd'hui avec nos formations accessibles immédiatement !</h2>
+				<div class="page_accueil_section2_container2">
+					<div class="page_accueil_section2_container3">
+						<a class="page_accueil_section2_container3_a" href="https://www.cesi.fr/wp-content/uploads/2024/04/Fiches-2024Fiche-Programme-Detaillee-2169019.pdf?v=240418">
+							<img src="{{ asset('assets/svgs/pdf_icon.svg') }}">
+							<p>Télécharger les fiches PDF</p>
+						</a>
+						<div>
+							<span class="overlay"></span>
+							<img src="{{ asset('assets/images/GMSI.jpg') }}">
+						</div>
+						<div class="page_accueil_section2_container4">
+							<h3>Gestionnaire en maintenance et support informatique cursus en 2 ans en alternance</h3>
+							<p>Le gestionnaire en maintenance et support informatique assure les actions techniques d'installation, de déploiement et de configuration des ordinateurs et laptops, en respectant les règles de sécurité. Il diagnostique et résout les incidents matériels et logiciels, offrant une assistance aux utilisateurs. Sa mission principale est de maintenir le bon fonctionnement des postes utilisateurs, gérer les accès sécurisés et proposer des solutions innovantes.</p>
+							<div class="page_accueil_section2_container4_btns">
+								<a href="{{ path('app_preinscription') }}">Postulez en ligne</a>
+								<a class="page_accueil_section2_container4_btns_a" href="{{ path('app_preinscription') }}">En savoir plus</a>
+							</div>
+						</div>
+					</div>
+					<div class="page_accueil_section2_container3">
+						<a class="page_accueil_section2_container3_a" href="https://www.cesi.fr/wp-content/uploads/2024/04/Fiches-2024Fiche-Programme-Detaillee-2497327.pdf?v=240418">
+							<img src="{{ asset('assets/svgs/pdf_icon.svg') }}">
+							<p>Télécharger les fiches PDF</p>
+						</a>
+						<div>
+							<span class="overlay"></span>
+							<img src="{{ asset('assets/images/DevWeb.jpg') }}">
+						</div>
+						<div class="page_accueil_section2_container4">
+							<h3>Développeur·se informatique</h3>
+							<p>Le développeur informatique est un concepteur/développeur de solutions logicielles répondant aux besoins des utilisateurs de l’entreprise ou de clients externes. Il est capable, à partir de l’expression du besoin, de réaliser les développements adaptés, en mobilisant de larges savoirs et savoir-faire dans les langages de programmation et méthodes de développement. Le développeur informatique doit prendre en compte la demande d'interconnexion des applications et leur mobilité.</p>
+							<div class="page_accueil_section2_container4_btns">
+								<a href="{{ path('app_preinscription') }}">Postulez en ligne</a>
+								<a class="page_accueil_section2_container4_btns_a" href="{{ path('app_preinscription') }}">En savoir plus</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="page_accueil_section3">
+			<div class="page_accueil_section3_container">
+				<div>
+					<h3>Travailler chez CESI</h3>
+					<p>Rejoignez nos 1 300 collaborateurs passionnés par leur métier qui transmettent leur savoir-faire et accompagnent les 28 000 étudiants formés chaque année par CESI au sein de nos 25 campus répartis sur l’ensemble du territoire français.</p>
+					<p>Postulez en ligne sur notre site internet. Si vous correspondez au profil recherché, vous serez contacté par un de nos recruteurs en région.</p>
+					<a href="{{ path('app_register') }}">Postulez en ligne</a>
+				</div>
+				<div>
+					<span>
+						<p class="page_accueil_section3_container_p">Découvrez nos modules de formation !</p>
+						<div class="page_accueil_section3_container2">
+							<span>
+								<p class="page_accueil_section3_container2_p">Gestionnaire en maintenance et support informatique</p>
+
+								<p>Administrer un parc informatique</p>
+								<p>Déployer un parc informatique</p>
+								<p>Gérer un parc informatique</p>
+								<p>Développer ses pratiques professionnelles</p>
+								<p>Certifier ses compétences de Gestionnaire en maintenance et support informatique</p>
+							</span>
+						</div>
+						<div class="page_accueil_section3_container2">
+							<span>
+								<p class="page_accueil_section3_container2_p">Développeur·se informatique</p>
+
+								<p>Administrer un parc informatique</p>
+								<p>Déployer un parc informatique</p>
+								<p>Gérer un parc informatique</p>
+								<p>Développer ses pratiques professionnelles</p>
+								<p>Certifier ses compétences de Gestionnaire en maintenance et support informatique</p>
+							</span>
+						</div>
+					</span>
+				</div>
+			</div>
+		</section>
+
+		{% block footer %}
+			{{ parent() }}
+		{% endblock %}
+
+		{% block scripts %}{% endblock %}
+	{% endblock %}

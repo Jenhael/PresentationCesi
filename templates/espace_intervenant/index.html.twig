@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Intervenant
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/espace_intervenant.css') }}"/>
+{% endblock %}
+
+{% block body %}
+	{% block navbar %}
+		{{ parent() }}
+	{% endblock %}
+	<section class="espace_intervenant_section">
+		<div class="espace_intervenant_column1">
+			{% include 'invervenant_navmenu/index.html.twig' %}
+		</div>
+		<div class="espace_intervenant_column2">
+			{{ form_start(position_intervenant_form, {'attr': {'class': 'espace_intervenant_position_intervenant'}}) }}
+			<p>Se positionner sur une formation</p>
+
+			{{ form_widget(position_intervenant_form.formations) }}
+			{{ form_widget(position_intervenant_form.modules) }}
+			{{ form_end(position_intervenant_form) }}
+
+			<div class="espace_intervenant_position_intervenant">
+				<p>Je suis positionné sur</p>
+				<div class="position_intervenant_container">
+					{% if data %}
+						{% for row in data %}
+							<div class="position_intervenant_container3">
+								<form class="position_intervenant_del_form" action="/delete" method="post">
+									<span>
+										<b>{{ row.formation }}</b>
+									</span>
+									<button class="position_intervenant_del_btn" type="submit" name="deleteFormation" value="{{ row.id_formation }}"><img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/delete_icon.svg') }}"></button>
+								</form>
+								<div class="position_intervenant_container2">
+									{% set modulesArray = row.modules|split(',') %}
+									{% set moduleIdsArray = row.module_ids|split(',') %}
+									{% for module in modulesArray %}
+										{% set index = loop.index0 %}
+										<form class="position_intervenant_del_form" action="/delete" method="post">
+											<div>{{ module }}</div>
+											<button class="position_intervenant_del_btn" type="submit" name="deleteModule" value="{{ moduleIdsArray[index] }}"><img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/delete_icon.svg') }}"></button>
+										</form>
+									{% endfor %}
+								</div>
+							</div>
+						{% endfor %}
+					{% else %}
+						<p>Actuellement vous n'êtes pas positionner sur des formations</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{% block footer %}
+		{{ parent() }}
+	{% endblock %}
+
+	{% block scripts %}
+		<script src="{{ asset('assets/scripts/espace_intervenant.js') }}"></script>
+	{% endblock %}
+
+{% endblock %}

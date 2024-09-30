@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription Intervenant
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/inscription_intervenant.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% block navbar %}
+		{{ parent() }}
+	{% endblock %}
+	<section class="inscription_intervenant_section">
+		{{ form_errors(registrationForm) }}
+		{{ form_start(registrationForm, {'attr': {'class': 'inscription_intervenant_code'}}) }}
+		{{ include('errors_&_popups/flash_error_messages.html.twig') }}
+
+		<div class="inscription_intervenant_form_row">
+			<h1>Devenez intervenant</h1>
+			<p>Renseignez le formulaire pour vous inscrire en tant qu'intervenant.</p>
+			{{ form_widget(registrationForm.user_relation.civilite) }}
+			{{ form_row(registrationForm.competances) }}
+			<div class="form_group diplome">
+				{{ form_widget(registrationForm.diplomes) }}
+				<button type="button" class="registration_ajout_diplome_button" onclick="add_more_diplome()">+ Diplome</button>
+			</div>
+			<div class="form_group">
+				{{ form_widget(registrationForm.user_relation.nom) }}
+				{{ form_widget(registrationForm.user_relation.prenom) }}
+				{{ form_widget(registrationForm.user_relation.date_de_naissance) }}
+			</div>
+			<div class="form_group">
+				{{ form_widget(registrationForm.user_relation.adresse) }}
+				{{ form_widget(registrationForm.user_relation.ville) }}
+				{{ form_widget(registrationForm.user_relation.code_postale) }}
+			</div>
+			{{ form_widget(registrationForm.user_relation.telephone) }}
+			<div class="form_group">
+				{{ form_widget(registrationForm.email) }}
+				{{ form_widget(registrationForm.plainPassword, { label: false }) }}
+			</div>
+			<div class="form_group">
+				{{ form_row(registrationForm.agreeTerms) }}
+				<span>Accepter les termes et les conditions</span>
+			</div>
+		</div>
+		<button type="submit" class="btn">S'inscrire</button>
+		{{ form_end(registrationForm) }}
+	</section>
+
+
+	{% block footer %}
+		{{ parent() }}
+	{% endblock %}
+
+	{% block scripts %}
+		{{ parent() }}
+		<script src="{{ asset('assets/scripts/inscription_intervenant.js') }}"></script>
+	{% endblock %}
+{% endblock %}

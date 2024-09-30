@@ -1,0 +1,18 @@
+{% set flashErrorMessages = app.request.session.flashbag.get('error') %}
+{% if flashErrorMessages is not empty %}
+    <div class="flash_messages">
+        {% for message in flashErrorMessages %}
+            <div class="flash_error">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+{% set flashErrorMessages = app.request.session.flashbag.get('success') %}
+{% if flashErrorMessages is not empty %}
+    <div class="flash_messages_succes">
+        {% for message in flashErrorMessages %}
+            <div class="flash_error">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+

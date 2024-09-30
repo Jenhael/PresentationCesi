@@ -1,0 +1,89 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace Intervenant
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/espace_intervenant.css') }}"/>
+{% endblock %}
+
+{% block body %}
+	{% block navbar %}
+		{{ parent() }}
+	{% endblock %}
+	<section class="espace_intervenant_section">
+		<div class="espace_intervenant_column1">
+			{% include 'invervenant_navmenu/index.html.twig' %}
+		</div>
+		<div class="gerer_intervenant_column2">
+			<div class="gerer_intervenant_list">
+				{% for intervenant in data1 %}
+					<form class="gerer_intervenant_form" action="/delete" method="post" onclick="return_intervenants_card()">
+						<span>Infos personnelles</span>
+						<h2>
+							<img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/profile_icon.svg') }}">
+							{{ intervenant.nom }}
+							{{ intervenant.prenom }}
+						</h2>
+						<div>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/date_of_birth.svg') }}">
+								{{ intervenant.date_de_naissance }}
+							</p>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/location_icon.svg') }}">
+								{{ intervenant.adresse }},
+								{{ intervenant.code_postal }},
+								{{ intervenant.ville }}
+							</p>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/telephone_icon.svg') }}">
+								{{ intervenant.telephone }}
+							</p>
+						</div>
+						<div>
+							<span>Competences et diplomes</span>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/competance_icon.svg') }}">
+								{{ intervenant.competances_names }}
+							</p>
+							<p>
+								<img class="back_office_svgs" src="{{ asset('assets/svgs/diplome_icon.svg') }}">
+								{{ intervenant.diplome_concat }}
+							</p>
+						</div>
+						<div class="gerer_intervenant_backface">
+							<span>Formations et modules</span>
+							{% for formations in data2 %}
+								{% if formations.user_relation_id == intervenant.id %}
+									<h3>{{ formations.formation }}</h3>
+									<div>
+										{% set moduleArray = formations.modules|split(',') %}
+										{% for module in moduleArray %}
+											<p>{{ module }}</p>
+										{% endfor %}
+									</div>
+								{% endif %}
+							{% endfor %}
+						</div>
+					</form>
+				{% endfor %}
+			</div>
+
+			<div class="export_icons_container">
+				<a href="{{ path('export_excel') }}"><img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/excel_icon.svg') }}"></a>
+				<a href="#"><img class="intervenant_navmenu_profile_svg" src="{{ asset('assets/svgs/pdf_icon.svg') }}"></a>
+			</div>
+		</div>
+	</section>
+
+	{% block footer %}
+		{{ parent() }}
+	{% endblock %}
+
+	{% block scripts %}
+		<script src="{{ asset('assets/scripts/espace_intervenant.js') }}"></script>
+	{% endblock %}
+
+{% endblock %}

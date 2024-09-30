@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}"/>
+
+<nav>
+	<a href="{{ path('app_page_accueil') }}" class="nav_menu_logo">CESI</a>
+	<ul>
+		<a href="{{ path('app_page_accueil') }}">Accueil</a>
+		<a href="">Nos formations</a>
+		<a href="">À propos</a>
+		<a href="">Contact</a>
+	</ul>
+	{% if app.user %}
+		<a href="{{ path('app_espace_intervenant') }}" class="nav_menu_connexion_btn">Mon espace</a>
+	{% else %}
+		<a href="{{ path('app_login') }}" class="nav_menu_connexion_btn">Connexion</a>
+	{% endif %}
+</nav>

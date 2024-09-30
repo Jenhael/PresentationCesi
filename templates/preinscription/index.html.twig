@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Preinscription Formation
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('assets/css/preinscription.css') }}">
+{% endblock %}
+
+{% block body %}
+	{% block navbar %}
+		{{ parent() }}
+	{% endblock %}
+	{% if form_success %}
+		<div class="success_message_container">
+			<div class="success_message">
+				Nous vous remercions d'avoir soumis votre préinscription pour notre formation. Votre intérêt est précieux pour nous. Nous vous assurons que nous prendrons contact avec vous dans les plus brefs délais pour vous fournir toutes les informations nécessaires.
+			</div>
+		</div>
+	{% else %}
+		<section class="preinscription_section">
+			{{ form_start(preinscription_form, {'attr': {'class': 'preinscription_form'}}) }}
+			<h1>Préinscriptions ouvertes pour nos formations</h1>
+			<p>Remplissez le formulaire pour vous préinscrire dès maintenant</p>
+			{{ form_widget(preinscription_form.civilite) }}
+			{{ form_row(preinscription_form.formations) }}
+			<div class="form_group">
+				{{ form_widget(preinscription_form.nom) }}
+				{{ form_widget(preinscription_form.prenom) }}
+				{{ form_widget(preinscription_form.date_de_naissance) }}
+			</div>
+			<div class="form_group">
+				{{ form_widget(preinscription_form.adresse) }}
+				{{ form_widget(preinscription_form.ville) }}
+			</div>
+			<div class="form_group">
+				{{ form_widget(preinscription_form.code_postal) }}
+				{{ form_widget(preinscription_form.pays) }}
+			</div>
+			{{ form_widget(preinscription_form.diplome) }}
+			{{ form_widget(preinscription_form.telephone) }}
+			<label for="utilisateur_cv" class="upload_file_labels">
+				Choisissez votre CV
+				{{ form_widget(preinscription_form.cv, {'attr': {'class': 'hidden_input', 'onchange': 'displaySelectedFileName(this)'}}) }}
+				<span class="selected_file"></span>
+			</label>
+			<button type="submit">S'inscrire</button>
+			{{ form_end(preinscription_form) }}
+		</section>
+	{% endif %}
+
+
+	{% block footer %}
+		{{ parent() }}
+	{% endblock %}
+
+	{% block scripts %}
+		{{ parent() }}
+	{% endblock %}
+{% endblock %}
